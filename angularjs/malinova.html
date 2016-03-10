@@ -29,7 +29,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body ng-controller="MainController">
+<body ng-controller="MainController as mainCtrl">
     <div class="nav-bar">
         <div class="title-site">Warsaw Guide</div>
         <ul class="nav-menu">
@@ -56,8 +56,8 @@
             </div>
             <div class="col-sm-6 col-md-6">
             <div class="page-user-panel">
-             <a ng-click="counterNumber = counterNumber + 1"><div class="heart-icon">
-             <div class="heart-icon-number"><span>{{counterNumber}}</span></div></div></a>
+             <a ng-click="mainCtrl.counterNumber = mainCtrl.counterNumber + 1 "><div class="heart-icon">
+             <div class="heart-icon-number"><span>{{mainCtrl.counterNumber}}</span></div></div></a>
                 <div class="page-panel-btn">+ Add place to favourites</div>
                 <div class="page-panel-btn">+ Share</div>
             </div>
