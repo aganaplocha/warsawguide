@@ -1,5 +1,5 @@
 angular.module('warsawApp', [])
-  .controller('MainController', function() {
+    .controller('MainController', function() {
 
-  	this.counterNumber = 0;
- });
+
+    });
