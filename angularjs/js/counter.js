@@ -2,15 +2,21 @@ angular.module('warsawApp')
     .directive('warsawCounter', function() {
         return {
             scope: {
-                count: '=',
+                this.count: "=mainCtrl.count"
             },
-            controller: function() {
-                this.count = 0;
-            },
+            
             restrict: 'E',
             controllerAs: 'ctrl',
             templateUrl: '../counter.html',
-            bindToController: true
+            bindToController: true,
+            bindToController: {
+                address: '='
+              },
+             
 
         };
     });
+
+
+
+
