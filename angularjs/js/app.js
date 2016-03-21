@@ -1,7 +1,7 @@
 "use strict";
 var app = angular.module('warsawApp', ['ngRoute','firebase']);
  
- app.controller('MainController', function() {
+app.controller('MainController', function() {
 
 });
 
@@ -21,11 +21,10 @@ app.config(['$routeProvider', function($routeProvider) {
         controllerAs: 'mainCtrl'
       }).
     when('/malinova', {
-        templateUrl: '../text.html',
+        templateUrl: '../malinova.html',
+        controller: 'MalinovaController',
         controllerAs: 'malinovaCtrl'
-    }).
-    when('/test', {
-        templateUrl: '../test.html'
     });
+   
  }]);
  
