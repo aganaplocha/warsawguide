@@ -13,7 +13,8 @@
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.4/angularfire.min.js"></script>
     <script src="js/app.js"></script>
-     <script src="js/counter.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/loginpanel.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,700,600italic' rel='stylesheet' type='text/css'>
@@ -39,8 +40,11 @@
             <li>Recommended by Locals</li>
             <li>About</li>
             <li>Contact</li>
+            <li ng-click="showLoginPanel();">Login</li>
         </ul>
     </div>
+    <login-panel ng-show="loginDisplayed"></login-panel>
+
     <div ng-view></div>
     <footer>
         <div class="footer-container">
