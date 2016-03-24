@@ -3,8 +3,6 @@ var app = angular.module('warsawApp', ['ngRoute', 'firebase']);
 
 app.controller('MainController', function($scope) {
    
-};
-
 });
 
 app.controller('MalinovaController', function($scope, $firebaseObject) {
