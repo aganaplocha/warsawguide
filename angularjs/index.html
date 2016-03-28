@@ -15,6 +15,7 @@
     <script src="js/app.js"></script>
     <script src="js/counter.js"></script>
     <script src="js/loginpanel.js"></script>
+    <script src="js/navbar.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,600,700,600italic' rel='stylesheet' type='text/css'>
@@ -32,19 +33,7 @@
     <![endif]-->
 </head>
 <body>
-    <div class="nav-bar">
-         <a href="#/"><div class="title-site">Warsaw Guide</div></a>
-        <ul class="nav-menu">
-            <a href="#/malinova"><li>Browse places</li></a>
-            <a href="#/test"><li>Paths</li></a>
-            <li>Recommended by Locals</li>
-            <li>About</li>
-            <li>Contact</li>
-            <li ng-click="showLoginPanel();">Login</li>
-        </ul>
-    </div>
-    <login-panel ></login-panel>
-
+    <warsaw-navbar></warsaw-navbar>
     <div ng-view></div>
     <footer>
         <div class="footer-container">
