@@ -1,7 +1,7 @@
-    <div class="slider">
-        <div class="slider-text-container">
-            <h5>Hello & Welcome on </h5>
-            <h4> Warsaw Guide!</h3></div></div>
+<div class="slider">
+    <div class="slider-text-container">
+        <h5>Hello & Welcome on </h5>
+        <h4> Warsaw Guide!</h3></div></div>
         <div class="row">
             <div class="col-sm-12 col-md-12">
                <h5 class="home-section-heading">Latest spots & events</h5>
@@ -62,14 +62,16 @@
             <div class="col-sm-6 col-md-6">
                <div class="home-recommended-details">
                     <h3>Paula Dudek</h3>
-                    <div class="recommended-subtitle">Ilustrator <span class="divider">|</span> cargocollective.com/pauladudek</div>
+                    <div class="recommended-subtitle">Ilustrator <span class="divider">|</span> cargocollective.com/pauladudek</div>                   
                     <h5>Food</h5>
                      <p>Paula Dudek is a Warsaw-based Polish illustrator. 
                    She graduated from Warsaw Academy of Fine Arts. As an illustrator she seeks many places in Warsaw which help her to be inspired and keep the creative energy.</p>
+                    <div ng-show="ctrl.textWhole">
                     <h5>Museums</h5>
                      <p>Paula Dudek is a Warsaw-based Polish illustrator. 
                    She graduated from Warsaw Academy of Fine Arts. As an illustrator she seeks many places in Warsaw which help her to be inspired and keep the creative energy.</p>
-                     <div class="read-more-btn">Find out more about Paula's choices</div>
+                   </div>
+                     <div class="read-more-btn" ng-click="ctrl.toggleReadMore();">Find out more about Paula's choices</div>
 
 
                </div>
@@ -82,8 +84,9 @@
             <div class="col-sm-12 col-md-12">
             <div class="contact-section">
              <h4 class="contact-section-heading">Let's make our list bigger!</h4>
-             <p >We're looking for more awesome places.<br/> If you know any spots worth recommending share it with us!</p>
-            </div>
-            </div>
-        </div>
+        <p>We're looking for more awesome places.
+            <br/> If you know any spots worth recommending share it with us!</p>
     </div>
+</div>
+</div>
+</div>

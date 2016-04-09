@@ -2,6 +2,10 @@
 var app = angular.module('warsawApp', ['ngRoute', 'firebase']);
 
 app.controller('MainController', function($scope) {
+    this.textWhole = false; // initially not displayed
+    this.toggleReadMore = function() {
+        this.textWhole = !this.textWhole;
+    };
 });
 
 app.controller('MalinovaController', function($scope, $firebaseObject) {
