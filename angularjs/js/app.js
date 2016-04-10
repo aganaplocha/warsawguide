@@ -1,5 +1,5 @@
 "use strict";
-var app = angular.module('warsawApp', ['ngRoute', 'firebase']);
+var app = angular.module('warsawApp', ['ngRoute','ngAnimate','firebase']);
 
 app.controller('MainController', function($scope) {
     this.textWhole = false; // initially not displayed

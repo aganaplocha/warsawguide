@@ -11,6 +11,9 @@ angular.module('warsawApp')
                        this.loginDisplayed = !this.loginDisplayed; // this is a shorter way to express you if..else - it just flips the value of the variable
                     };
 
+                    
+
+
                 },
 
             	controllerAs: 'ctrl',
