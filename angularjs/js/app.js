@@ -19,8 +19,8 @@ app.controller('MainController', function($scope) {
     };
 
     ref.authWithPassword({
-        email: "bobtony@firebase.com",
-        password: "correcthorsebatterystaple"
+        email: "aganaplocha@gmail.com",
+        password: "warsawguide"
     }, function(error, authData) {
         if (error) {
             console.log("Login Failed!", error);
@@ -35,17 +35,6 @@ app.controller('MalinovaController', function($scope, $firebaseObject) {
     let ref = new Firebase('https://blinding-inferno-6187.firebaseio.com');
     let malinovaRef = ref.child('attractions/malinova');
     $firebaseObject(malinovaRef).$bindTo($scope, 'malinovaCtrl.data');
-
-    // ref.createUser({
-    //     email: "bobtony@firebase.com",
-    //     password: "correcthorsebatterystaple"
-    // }, function(error, userData) {
-    //     if (error) {
-    //         console.log("Error creating user:", error);
-    //     } else {
-    //         console.log("Successfully created user account with uid:", userData.uid);
-    //     }
-    // });
 });
 
 
