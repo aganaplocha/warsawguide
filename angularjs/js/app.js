@@ -2,24 +2,19 @@
 var app = angular.module('warsawApp', ['ngRoute', 'ngAnimate', 'firebase']);
 
 var AccountService = function () {
-    //this.createUser = ;
-    //this.login = ;
+
+AccountService.prototype.createUser = function() {
+
+};
+AccountService.prototype.login = function() {
+        
+};    
 };
 app.service('warsawAccountService', AccountService);
 
 
 app.controller('MainController', function($scope) {
-    var ref = new Firebase("https://blinding-inferno-6187.firebaseio.com");
-    ref.createUser({
-        email: "bobtony@firebase.com",
-        password: "correcthorsebatterystaple"
-    }, function(error, userData) {
-        if (error) {
-            console.log("Error creating user:", error);
-        } else {
-            console.log("Successfully created user account with uid:", userData.uid);
-        }
-    });
+    
     this.accountService = warsawAccountService; // adding service for user account
 
     this.textWhole = false; // initially not displayed
@@ -28,15 +23,15 @@ app.controller('MainController', function($scope) {
     };
 
     ref.authWithPassword({
-        email: "bobtony@firebase.com",
-        password: "correcthorsebatterystaple"
+        email: "aganaplocha@gmail.com",
+        password: "warsawguide"
     }, function(error, authData) {
         if (error) {
             console.log("Login Failed!", error);
         } else {
-            this.user = authData;
-
+            this.useremail = authWithPassword.uid;
             console.log("Authenticated successfully with payload:", authData);
+            console.log(authWithPassword.uid);
         }
     });
 });
