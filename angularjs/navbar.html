@@ -6,7 +6,8 @@
                 <label>Login</label>
                 <input type="text" name="login" ng-model="ctrl.email">
                 <label>Password</label>
-                <input type="text" name="password" ng-model="ctrl.password">
+                <input type="password" name="password" ng-model="ctrl.password">
+                <p>{{ctrl.passwordError}}</p>
                 <input type="submit" value="Submit" ng-click="ctrl.login()">
             </form>
         </div>
