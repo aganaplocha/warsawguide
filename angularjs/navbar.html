@@ -4,10 +4,10 @@
             <h3>Login</h3>
             <form class="login">
                 <label>Login</label>
-                <input type="text" name="login">
+                <input type="text" name="login" ng-model="ctrl.email">
                 <label>Password</label>
-                <input type="text" name="password">
-                <input type="submit" value="Submit">
+                <input type="text" name="password" ng-model="ctrl.password">
+                <input type="submit" value="Submit" ng-click="ctrl.login()">
             </form>
         </div>
         <div class="col-half">

@@ -1,19 +1,35 @@
 "use strict";
 var app = angular.module('warsawApp', ['ngRoute', 'ngAnimate', 'firebase']);
-
-var AccountService = function () {
+app.constant('warsawFirebaseUrl','https://blinding-inferno-6187.firebaseio.com');
+app.factory('warsawFirebaseRef', function (warsawFirebaseUrl){
+    return new Firebase(warsawFirebaseUrl);;
+});
+var AccountService = function (warsawFirebaseRef) {
+   this.ref = warsawFirebaseRef;
+   this.email = null;
+};
 
 AccountService.prototype.createUser = function() {
 
 };
-AccountService.prototype.login = function() {
-        
-};    
-};
+AccountService.prototype.login = function(email, password) {
+    this.ref.authWithPassword({
+        email: email,
+        password: password
+    }, (error, authData) => {  // arrow function
+        if (error) {
+            console.log("Login Failed!", error);
+        } else {
+            this.email = authData.password.email;
+            console.log("Authenticated successfully with payload:", authData);
+            console.log(authWithPassword.uid);
+        }
+    });        
+};  
 app.service('warsawAccountService', AccountService);
 
 
-app.controller('MainController', function($scope) {
+app.controller('MainController', function($scope, warsawAccountService) {
     
     this.accountService = warsawAccountService; // adding service for user account
 
@@ -22,25 +38,13 @@ app.controller('MainController', function($scope) {
         this.textWhole = !this.textWhole;
     };
 
-    ref.authWithPassword({
-        email: "aganaplocha@gmail.com",
-        password: "warsawguide"
-    }, function(error, authData) {
-        if (error) {
-            console.log("Login Failed!", error);
-        } else {
-            this.useremail = authWithPassword.uid;
-            console.log("Authenticated successfully with payload:", authData);
-            console.log(authWithPassword.uid);
-        }
-    });
+
 });
 
 
 
-app.controller('MalinovaController', function($scope, $firebaseObject) {
-    let ref = new Firebase('https://blinding-inferno-6187.firebaseio.com');
-    let malinovaRef = ref.child('attractions/malinova');
+app.controller('MalinovaController', function($scope, $firebaseObject, warsawAccountService, warsawFirebaseRef) {
+    let malinovaRef = warsawFirebaseRef.child('attractions/malinova');
     $firebaseObject(malinovaRef).$bindTo($scope, 'malinovaCtrl.data');
     this.accountService = warsawAccountService;  // adding service for user account
 
