@@ -2,6 +2,8 @@ var NavbarController = function(warsawAccountService) {
     this.accountService = warsawAccountService;
     this.email = '';
     this.password = '';
+    this.emailRegister = ''; //email in registration process
+    this.passwordRegister = ''; //password in registration process
     this.passwordError = null;
     this.loginDisplayed = false; // initially not displayed
 };
@@ -10,6 +12,16 @@ NavbarController.prototype.toggleLoginPanel = function() { // renamed it toggle,
 };
 NavbarController.prototype.login = function() { 
     var promise = this.accountService.login(this.email, this.password);
+    promise.then((authData) => {
+        this.passwordError = null;
+        this.loginDisplayed = false;
+    }, 
+    (error) => {
+        this.passwordError = error.message;
+    });
+};
+NavbarController.prototype.register = function() { 
+    var promise = this.accountService.register(this.emailRegister, this.passwordRegister);
     promise.then((authData) => {
         this.passwordError = null;
         this.loginDisplayed = false;

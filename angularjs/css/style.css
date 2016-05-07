@@ -553,18 +553,19 @@ h5.page-subtitle {
     height: 20px;
 }
 
-form.login input {
+form.login input, form.register input {
     display: block;
     width: 100%;
 }
 
-form.login input[type="text"] {
+form.login input[type="text"], form.register input[type="text"],
+form.login input[type="password"], form.register input[type="password"]{
     height: 40px;
     border: 1px solid #000;
     margin: 10px 0;
 }
 
-form.login label{
+form.login label, form.register label{
     font-family: 'Lato', sans-serif;
     color: #A5A5A5;
 }

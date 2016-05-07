@@ -8,11 +8,20 @@
                 <label>Password</label>
                 <input type="password" name="password" ng-model="ctrl.password">
                 <p>{{ctrl.passwordError}}</p>
-                <input type="submit" value="Submit" ng-click="ctrl.login()">
+                <input type="submit" value="Login" ng-click="ctrl.login()">
             </form>
         </div>
         <div class="col-half">
             <h3>Register</h3>
+            <form class="register">
+                <label>User name (login)</label>
+                <input type="text" name="login" ng-model="ctrl.emailRegister">
+                <label>Password</label>
+                <input type="password" name="password-register" ng-model="ctrl.passwordRegister">
+                <label>Type password again</label>
+                <input type="password" name="password-register-repeated" ng-model="ctrl.passwordRegister">
+                <input type="submit" value="Register" ng-click="ctrl.register()">
+            </form>
         </div>
         <div class="close-icon" ng-click="ctrl.toggleLoginPanel();">
             <img src="img/close-icon.svg" />

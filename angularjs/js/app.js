@@ -11,7 +11,20 @@ var AccountService = function (warsawFirebaseRef, $q) {
 };
 
 AccountService.prototype.createUser = function() {
-
+    var deferred = this.$q.defer();
+    this.ref.authWithPassword({
+        email: email,
+        password: password
+    }, (error, authData) => {  // arrow function
+        if (error) {
+            deferred.reject(error);
+        } else {
+            this.email = authData.password.email;
+            deferred.resolve(authData);
+            console.log("Authenticated successfully with payload:", authData);
+        }
+    });      
+    return deferred.promise;  
 };
 AccountService.prototype.login = function(email, password) {
     var deferred = this.$q.defer();
