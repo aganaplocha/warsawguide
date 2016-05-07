@@ -15,12 +15,12 @@
             <h3>Register</h3>
             <form class="register">
                 <label>User name (login)</label>
-                <input type="text" name="login" ng-model="ctrl.emailRegister">
+                <input type="text" name="login-register" ng-model="ctrl.emailRegister">
                 <label>Password</label>
                 <input type="password" name="password-register" ng-model="ctrl.passwordRegister">
                 <label>Type password again</label>
                 <input type="password" name="password-register-repeated" ng-model="ctrl.passwordRegister">
-                <input type="submit" value="Register" ng-click="ctrl.register()">
+                <input type="submit" value="Register" ng-click="ctrl.createUser()">
             </form>
         </div>
         <div class="close-icon" ng-click="ctrl.toggleLoginPanel();">

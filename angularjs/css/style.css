@@ -558,11 +558,17 @@ form.login input, form.register input {
     width: 100%;
 }
 
+input[type="text"], input[type="password"] {
+    padding-left: 10px;
+    font-size: 15px;
+}
+
 form.login input[type="text"], form.register input[type="text"],
 form.login input[type="password"], form.register input[type="password"]{
     height: 40px;
     border: 1px solid #000;
     margin: 10px 0;
+
 }
 
 form.login label, form.register label{

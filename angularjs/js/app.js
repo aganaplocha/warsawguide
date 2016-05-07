@@ -7,25 +7,38 @@ app.factory('warsawFirebaseRef', function (warsawFirebaseUrl){
 var AccountService = function (warsawFirebaseRef, $q) {
    this.ref = warsawFirebaseRef;
    this.email = null;
+   this.emailRegister = null;
    this.$q = $q;
 };
 
+
 AccountService.prototype.createUser = function() {
     var deferred = this.$q.defer();
-    this.ref.authWithPassword({
-        email: email,
-        password: password
-    }, (error, authData) => {  // arrow function
+    this.ref.createUser({
+        email: emailRegister,
+        password: passwordRegister
+    }, (error, userData) => {  // arrow function
         if (error) {
-            deferred.reject(error);
-        } else {
-            this.email = authData.password.email;
-            deferred.resolve(authData);
-            console.log("Authenticated successfully with payload:", authData);
-        }
-    });      
+            switch (error.code) {
+              case "EMAIL_TAKEN":
+                console.log("The new user account cannot be created because the email is already in use.");
+                break;
+              case "INVALID_EMAIL":
+                console.log("The specified email is not a valid email.");
+                break;
+              default:
+                console.log("Error creating user:", error);
+            }
+      } 
+      else {
+        console.log("Successfully created user account with uid:", userData.uid);
+        //this.emailRegister = userData.password.email;
+    };      
+    
     return deferred.promise;  
-};
+    });
+};  
+
 AccountService.prototype.login = function(email, password) {
     var deferred = this.$q.defer();
     this.ref.authWithPassword({

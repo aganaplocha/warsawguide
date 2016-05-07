@@ -20,9 +20,9 @@ NavbarController.prototype.login = function() {
         this.passwordError = error.message;
     });
 };
-NavbarController.prototype.register = function() { 
-    var promise = this.accountService.register(this.emailRegister, this.passwordRegister);
-    promise.then((authData) => {
+NavbarController.prototype.createUser = function() { 
+    var promise = this.accountService.createUser(this.emailRegister, this.passwordRegister);
+    promise.then((createUser) => {
         this.passwordError = null;
         this.loginDisplayed = false;
     }, 
